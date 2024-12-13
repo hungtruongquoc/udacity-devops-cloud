@@ -1,0 +1,18 @@
+[
+    {
+      "ParameterKey": "EnvironmentName",
+      "ParameterValue": "UdagramProject"
+    },
+    {
+      "ParameterKey": "InstanceType",
+      "ParameterValue": "t2.micro"
+    },
+    {
+      "ParameterKey": "KeyName",
+      "ParameterValue": "udagram-key"
+    },
+    {
+      "ParameterKey": "S3BucketName",
+      "ParameterValue": "udagram-static-content-bucket"
+    }
+  ]
