@@ -99,6 +99,13 @@ graph TB
     class VPC vpc
 ```
 
+## Network Template
+
+A network stack template with:
+
+* VPC with parameterized CIDR
+* 2 public and 2 private subnets across 2
+
 ## License
 
 [License](LICENSE.txt)
