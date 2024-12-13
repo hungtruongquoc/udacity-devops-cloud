@@ -1,4 +1,4 @@
-# ND9991 - Course 2 - Infrastructure as Code
+# Hung Truong - ND9991 - Course 2 - Infrastructure as Code
 
 This repository contains the starter code for the final project of course 2 Infrastructure as Code in the Cloud DevOps Engineer Nanodegree.
 
@@ -42,7 +42,7 @@ No tests required for this project.
 
 5. Update the README.md file in the `starter` folder with creation and deletion instructions, as well as any useful information regarding your solution.
    
-6.  Submit your solution as a GitHub link or a zipped file containing the diagram image, CloudFormation yml and json files, automation scripts and README file.
+6. Submit your solution as a GitHub link or a zipped file containing the diagram image, CloudFormation yml and json files, automation scripts and README file.
 
 ## Diagram
 
@@ -105,6 +105,56 @@ A network stack template with:
 
 * VPC with parameterized CIDR
 * 2 public and 2 private subnets across 2
+
+## Server Template
+
+Server CloudFormation template (server.yml) that includes:
+* Application Load Balancer in public subnets
+* Auto Scaling Group in private subnets
+* Launch Template for EC2 instances
+* S3 bucket for static content
+* Required IAM roles and security groups
+* Appropriate security group rules
+
+Parameter file for the server stack that allows you to customize:
+* Environment name
+* Instance type
+* SSH key name
+* S3 bucket name
+
+Updated deployment script that:
+* Creates both network and server stacks
+* Waits for each stack to complete
+* Outputs the Load Balancer URL
+
+Cleanup script that:
+* Empties the S3 bucket
+* Deletes both stacks in the correct order
+* Waits for complete cleanup
+
+## Deployment
+
+Update the parameters in both parameter files as needed
+
+Make the scripts executable:
+
+```bash
+chmod +x scripts/create.sh scripts/delete.sh
+```
+
+Run the create script
+
+```bash
+./scripts/create.sh
+```
+
+To tear down
+
+```bash
+./scripts/delete.sh
+```
+
+The scripts include proper waits and dependencies to ensure resources are created and deleted in the correct order. The networking stack must be created first and deleted last since the server stack depends on it.
 
 ## License
 
